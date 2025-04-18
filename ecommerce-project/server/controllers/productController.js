@@ -3,6 +3,7 @@ const Product = require('../models/Product');
 // Get all products
 const getProducts = async (req, res) => {
     try {
+<<<<<<< HEAD
         const { category, priceRange, sortBy } = req.query;
         let query = {};
         
@@ -39,6 +40,9 @@ const getProducts = async (req, res) => {
             }
         }
 
+=======
+        const products = await Product.find();
+>>>>>>> e32f42725b23280fb5ec461d75b3a09c9d215fc9
         res.json(products);
     } catch (error) {
         res.status(500).json({ 

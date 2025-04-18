@@ -102,6 +102,7 @@ const getTopProducts = async (req, res) => {
 // Hàm để lấy danh sách đơn hàng
 const getOrders = async (req, res) => {
     try {
+<<<<<<< HEAD
         const orders = await Order.find({})
             .populate('user', 'name email')
             .sort({ createdAt: -1 }); // Sort by newest first
@@ -113,6 +114,10 @@ const getOrders = async (req, res) => {
         }));
         
         res.json(safeOrders);
+=======
+        const orders = await Order.find({}).populate('user', 'name email'); // Lấy tất cả đơn hàng và populate thông tin người dùng
+        res.json(orders);
+>>>>>>> e32f42725b23280fb5ec461d75b3a09c9d215fc9
     } catch (error) {
         res.status(500).json({ message: 'Có lỗi xảy ra' });
     }

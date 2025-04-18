@@ -26,7 +26,10 @@ import UserProfile from './pages/UserProfile';
 import ProductEdit from './pages/admin/ProductEdit';
 import ProtectedRoute from './components/ProtectedRoute';
 import AddProduct from './pages/admin/AddProduct';
+<<<<<<< HEAD
 import Footer from './components/Footer';
+=======
+>>>>>>> e32f42725b23280fb5ec461d75b3a09c9d215fc9
 
 function App() {
   return (
@@ -34,6 +37,7 @@ function App() {
       <CartProvider>
         <ProductProvider>
           <Router>
+<<<<<<< HEAD
             <div className="flex flex-col min-h-screen">
               <Navbar />
               <main className="flex-grow">
@@ -78,6 +82,49 @@ function App() {
                 </Routes>
               </main>
               <Footer />
+=======
+            <div className="min-h-screen bg-gray-100">
+              <Navbar />
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} />
+                <Route path="/product/:id" element={<ProductDetail />} />
+                <Route path="/cart" element={<Cart />} />
+                <Route path="/checkout" element={<Checkout />} />
+                <Route path="/order/track/:id" element={<OrderTracking />} />
+                <Route path="/admin" element={<AdminRoute><AdminLayout /></AdminRoute>}>
+                  <Route path="dashboard" element={<Dashboard />} />
+                  <Route path="products" element={<ProductManagement />} />
+                  <Route path="orders" element={<AdminOrders />} />
+                  <Route path="users" element={<UserManagement />} />
+                  <Route path="coupons" element={<CouponManagement />} />
+                  <Route path="settings" element={<AdminSettings />} />
+                </Route>
+                <Route path="/products" element={<ProductList />} />
+                <Route path="/order/:id" element={<OrderDetails />} />
+                <Route path="/orders" element={<Orders />} />
+                <Route 
+                  path="/profile" 
+                  element={
+                    <ProtectedRoute>
+                      <UserProfile />
+                    </ProtectedRoute>
+                  } 
+                />
+                <Route 
+                  path="/admin/product/:id/edit" 
+                  element={
+                    <ProtectedRoute isAdmin>
+                      <ProductEdit />
+                    </ProtectedRoute>
+                  } 
+                />
+                <Route path="/admin/products" element={<ProductManagement />} />
+                <Route path="/admin/product/add" element={<AddProduct />} />
+                <Route path="/admin/product/:id/edit" element={<ProductEdit />} />
+              </Routes>
+>>>>>>> e32f42725b23280fb5ec461d75b3a09c9d215fc9
             </div>
           </Router>
         </ProductProvider>
