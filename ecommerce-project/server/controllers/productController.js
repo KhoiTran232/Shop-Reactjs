@@ -3,7 +3,6 @@ const Product = require('../models/Product');
 // Get all products
 const getProducts = async (req, res) => {
     try {
-<<<<<<< HEAD
         const { category, priceRange, sortBy } = req.query;
         let query = {};
         
@@ -36,13 +35,8 @@ const getProducts = async (req, res) => {
                 case 'rating':
                     products.sort((a, b) => b.rating - a.rating);
                     break;
-                // Newest is default (no need to sort as MongoDB returns in reverse chronological order)
             }
         }
-
-=======
-        const products = await Product.find();
->>>>>>> e32f42725b23280fb5ec461d75b3a09c9d215fc9
         res.json(products);
     } catch (error) {
         res.status(500).json({ 
@@ -52,7 +46,6 @@ const getProducts = async (req, res) => {
     }
 };
 
-// Get single product
 const getProduct = async (req, res) => {
     try {
         const product = await Product.findById(req.params.id);
@@ -68,10 +61,8 @@ const getProduct = async (req, res) => {
     }
 };
 
-// Create product
 const createProduct = async (req, res) => {
     try {
-        // Log toàn bộ thông tin request
         console.log('Request headers:', req.headers);
         console.log('Request user:', req.user);
         console.log('Request body:', req.body);
@@ -94,8 +85,8 @@ const createProduct = async (req, res) => {
             brand,
             stock: parseInt(stock),
             inStock: parseInt(stock) > 0,
-            user: req.user._id,  // Thêm user ID từ request
-            image: req.file ? req.file.path.replace(/\\/g, '/') : 'default-product-image.jpg' // Thêm đường dẫn mặc định nếu không có ảnh
+            user: req.user._id, 
+            image: req.file ? req.file.path.replace(/\\/g, '/') : 'default-product-image.jpg'
         };
 
         console.log('Product data to save:', productData);
@@ -113,7 +104,6 @@ const createProduct = async (req, res) => {
             name: error.name
         });
         
-        // Trả về lỗi chi tiết hơn
         res.status(500).json({ 
             message: 'Error creating product', 
             error: error.message,
@@ -125,7 +115,6 @@ const createProduct = async (req, res) => {
     }
 };
 
-// Update product
 const updateProduct = async (req, res) => {
     try {
         const { name, price, description, category, brand, stock } = req.body;
@@ -161,7 +150,6 @@ const updateProduct = async (req, res) => {
     }
 };
 
-// Delete product
 const deleteProduct = async (req, res) => {
     try {
         const product = await Product.findByIdAndDelete(req.params.id);

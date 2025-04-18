@@ -162,11 +162,7 @@ function Home() {
                                             className="bg-blue-600 text-white px-4 py-2 rounded
                                                      hover:bg-blue-700 transition duration-300"
                                         >
-<<<<<<< HEAD
                                             Xem chi tiết
-=======
-                                            Thêm vào giỏ hàng
->>>>>>> e32f42725b23280fb5ec461d75b3a09c9d215fc9
                                         </button>
                                     </div>
                                 </div>

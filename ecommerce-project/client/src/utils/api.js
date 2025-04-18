@@ -113,11 +113,7 @@ export const productApi = {
         const params = new URLSearchParams();
         
         if (filters.category && filters.category !== 'All Categories') {
-<<<<<<< HEAD
             params.append('category', filters.category.toLowerCase());
-=======
-            params.append('category', filters.category);
->>>>>>> e32f42725b23280fb5ec461d75b3a09c9d215fc9
         }
         
         if (filters.priceRange && filters.priceRange !== 'All Prices') {
